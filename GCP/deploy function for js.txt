@@ -1,0 +1,1 @@
+gcloud functions deploy processPdf --gen2 --runtime=nodejs20 --region=us-east1 --entry-point=processPdf --trigger-event=google.cloud.storage.object.v1.finalized --trigger-resource=hipaa-doc-upload --memory=1GiB --timeout=300s --set-env-vars="PROJECT_ID=hippa-docai-demo,LOCATION=us,PROCESSOR_ID=d72d00f926c5a7cf,BQ_TABLE=hippa-docai-demo.pocData.DocumentData"
