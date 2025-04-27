@@ -41,6 +41,11 @@ Region: us-central1 (important, especially if you deploy later).
 Click Create.
 
 Train / Use the Custom Processor
+
+gcloud projects describe soum-392714 --format="value(projectNumber)"
+gcloud storage buckets add-iam-policy-binding gs://<bucket-name> \
+  --member="serviceAccount:<project-number.@gcp-sa-eventarc.iam.gserviceaccount.com" \
+  --role="roles/storage.objectViewer"
 Create a Node.js Function
 
                      
