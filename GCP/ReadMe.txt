@@ -6,6 +6,17 @@ gcloud services enable eventarcstorage.googleapis.com
 gcloud services enable cloudfunctions.googleapis.com
 gcloud services enable run.googleapis.com
 
+gcloud projects add-iam-policy-binding your-project-id \
+  --member=serviceAccount:PROJECT_ID@appspot.gserviceaccount.com \
+  --role=roles/eventarc.admin
+
+gcloud projects add-iam-policy-binding your-project-id \
+  --member=serviceAccount:PROJECT_ID@appspot.gserviceaccount.com \
+  --role=roles/run.invoker
+
+gcloud projects add-iam-policy-binding your-project-id \
+  --member=serviceAccount:PROJECT_ID@appspot.gserviceaccount.com \
+  --role=roles/storage.objectViewer
 
 Create a GCS Bucket to upload PDFs:
 
