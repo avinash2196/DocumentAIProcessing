@@ -19,6 +19,21 @@ gcloud projects add-iam-policy-binding your-project-id \
   --member=serviceAccount:PROJECT_ID@appspot.gserviceaccount.com \
   --role=roles/storage.objectViewer
 
+gcloud iam service-accounts create my-eventarc-sa \
+    --description="Custom Service Account for Eventarc trigger" \
+    --display-name="My Eventarc SA"
+
+# Allow access to Cloud Storage
+gcloud projects add-iam-policy-binding <project-id> --member="serviceAccount:my-eventarc-sa@<project-id>.iam.gserviceaccount.com" 
+  --role="roles/storage.objectViewer"
+
+# Allow to act as Cloud Run service (if needed)
+gcloud projects add-iam-policy-binding  <project-id>  --member="serviceAccount:my-eventarc-sa@<project-id>.iam.gserviceaccount.com" --role="roles/run.invoker"
+
+# (Optional) For PubSub triggers
+gcloud projects add-iam-policy-binding  <project-id>   --member="serviceAccount:my-eventarc-sa@ <project-id>.iam.gserviceaccount.com" --role="roles/pubsub.publisher"
+
+
 Create a GCS Bucket to upload PDFs:
 
 Create a BigQuery Dataset and Table:
