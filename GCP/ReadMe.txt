@@ -4,12 +4,9 @@ gcloud services enable storage.googleapis.com
 gcloud services enable cloudfunctions.googleapis.com
 gcloud services enable run.googleapis.com
 gcloud services enable eventarc.googleapis.com
- --gcloud services enable eventarcstorage.googleapis.com
 
 
-gcloud projects add-iam-policy-binding your-project-id \
-  --member=serviceAccount:PROJECT_ID@appspot.gserviceaccount.com \
-  --role=roles/eventarc.admin
+gcloud projects add-iam-policy-binding your-project-id   --member=serviceAccount:PROJECT_ID@appspot.gserviceaccount.com   --role=roles/eventarc.admin
 
 gcloud projects add-iam-policy-binding your-project-id \
   --member=serviceAccount:PROJECT_ID@appspot.gserviceaccount.com \
