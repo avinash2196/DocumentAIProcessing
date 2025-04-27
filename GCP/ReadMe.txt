@@ -28,7 +28,8 @@ gcloud projects add-iam-policy-binding <project-id> --member="serviceAccount:my-
 gcloud projects add-iam-policy-binding  <project-id>  --member="serviceAccount:my-eventarc-sa@<project-id>.iam.gserviceaccount.com" --role="roles/run.invoker"
 
 # (Optional) For PubSub triggers
-gcloud projects add-iam-policy-binding  <project-id>   --member="serviceAccount:my-eventarc-sa@ <project-id>.iam.gserviceaccount.com" --role="roles/pubsub.publisher"
+gcloud projects add-iam-policy-binding <project-id> --member="serviceAccount:service-<project-number>@gs-project-accounts.iam.gserviceaccount.com" \
+  --role="roles/pubsub.publisher"
 
 
 Create a GCS Bucket to upload PDFs:
